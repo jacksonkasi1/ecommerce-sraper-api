@@ -61,8 +61,8 @@ const productDetails = async (asin, asin_limit, country) => {
 
 // search
 app.get("/api/search", async (req, res) => {
-  console.log(req.query.keyword)
-  const responce = await searchProducts(req.query.keyword)
+  const {limit, keyword} = req.query
+  const responce = await searchProducts(keyword, limit)
   res.json(responce)
   // output data:
   // {
